@@ -1,0 +1,63 @@
+---
+title: Networking With Scapy 2)Ethernet payload using scapy👋
+date: '2024-07-29'
+tags: ['python', 'networking', 'scapy']
+draft: false
+summary: 'Learn about networking layers using Scapy, including crafting, sending, and sniffing Ethernet frames.'
+authors: ['default', 'Nischal Karki']
+---
+
+# Project Description
+Welcome to Networking With Scapy, a Python project focused on studying and implementing various networking layers using Scapy. This project aims to provide a hands-on learning experience in networking protocols and packet manipulation techniques.
+
+### ✨ Motive
+The primary goal of this project is to deepen understanding and practical skills in networking by exploring different layers of the OSI model and implementing them using Scapy. By leveraging Scapy's capabilities, we can craft, send, receive, and analyze packets at different network layers, enabling us to grasp fundamental concepts more effectively.
+
+#### Instructions
+1. Ensure you have Scapy installed. If not, you can install it via pip:
+
+    ```bash
+    pip install scapy
+    ```
+
+## Sending Payload using Scapy over Ethernet
+
+This Python script demonstrates how to use Scapy to craft and send Ethernet frames with a custom payload.
+
+```python
+from scapy.all import Ether, sendp, Raw
+
+# Asking user for payload
+user_input = input("Enter Payload: ")
+
+# Encoding the string to bytes
+payload_data = user_input.encode()
+
+# Crafting Ethernet Frame with Payload
+ether_frame = Ether(dst="ff:ff:ff:ff:ff:ff", src="11:22:33:44:55:66") / Raw(load=payload_data)
+
+# Print Ethernet Frame Summary
+print("Ethernet Frame Summary:")
+print(ether_frame.summary())
+
+# Sending the Ethernet Frame
+sendp(ether_frame, iface="eth0")
+
+
+## Code Explanation
+
+The function extracts source and destination MAC addresses from Ethernet frames.\
+It attempts to decode the payload using UTF-8 encoding.\
+If successful, it prints the destination MAC address and the decoded payload.\
+If decoding fails (due to a non-UTF-8 payload), it prints an error message with the source MAC address;
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+---

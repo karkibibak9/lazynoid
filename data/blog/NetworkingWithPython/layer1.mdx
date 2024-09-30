@@ -25,32 +25,39 @@ Ethernet is a set of technologies and protocols that are used primarily in LANs.
 
 The frame format of classic Ethernet and IEEE 802.3 consists of several key fields:
 
-1. **Preamble:** 
+1. **Preamble:**
+
    - In classic Ethernet, it's an 8-byte field providing timing pulses for transmission.
    - In IEEE 802.3, it's a 7-byte field serving the same purpose.
 
-2. **Start of Frame Delimiter (SFD):** 
+2. **Start of Frame Delimiter (SFD):**
+
    - Found in IEEE 802.3 frames only, it's a 1-byte field with an alternating pattern of ones and zeros, ending with two ones.
 
-3. **Destination Address:** 
+3. **Destination Address:**
+
    - A 6-byte field containing the physical address of the destination station.
 
-4. **Source Address:** 
+4. **Source Address:**
+
    - A 6-byte field containing the physical address of the sending station.
 
-5. **Length:** 
+5. **Length:**
+
    - A 2-byte field in classic Ethernet, storing the number of bytes in the data field.
    - Note: This field is replaced by the type/length field in IEEE 802.3, which may indicate either the length of the frame or the type of protocol being used.
 
-6. **Data:** 
+6. **Data:**
+
    - A variable-sized field carrying data from upper layers, with a maximum size of 1500 bytes.
    - Note: This field can vary depending on the payload being transmitted.
 
-7. **Padding:** 
+7. **Padding:**
+
    - Additional bits added to the data to meet the minimum frame size requirement of 46 bytes in classic Ethernet.
    - Note: Padding ensures that the frame meets the minimum size requirement and helps maintain synchronization between sender and receiver.
 
-8. **CRC (Cyclic Redundancy Check):** 
+8. **CRC (Cyclic Redundancy Check):**
    - A field containing error detection information, ensuring data integrity during transmission.
    - Note: CRC is computed based on the contents of the frame and is used by the receiving station to detect transmission errors.
 
@@ -64,25 +71,25 @@ This Python script demonstrates how to use Scapy to craft and send Ethernet fram
 
 1. Ensure you have Scapy installed. If not, you can install it via pip:
 
-    ```bash
-    pip install scapy
-    ```
+   ```bash
+   pip install scapy
+   ```
 
 2. Copy the following Python code snippet into your Python script:
 
-    ```python
-    # importing Scapy
-    from scapy.all import Ether, sendp
+   ```python
+   # importing Scapy
+   from scapy.all import Ether, sendp
 
-    # Creating Ethernet Frame
-    ether_Frame = Ether(dst="ff:ff:ff:ff:ff:ff", src="00:55:88:55:44")
+   # Creating Ethernet Frame
+   ether_Frame = Ether(dst="ff:ff:ff:ff:ff:ff", src="00:55:88:55:44")
 
-    print("Ethernet_Frame Summary:")
-    print(ether_Frame.summary())
+   print("Ethernet_Frame Summary:")
+   print(ether_Frame.summary())
 
-    # Sending the Frame
-    sendp(ether_Frame, iface="eth0")
-    ```
+   # Sending the Frame
+   sendp(ether_Frame, iface="eth0")
+   ```
 
 ## Sniffing Ethernet Frames with Scapy
 
@@ -92,22 +99,22 @@ This Python script demonstrates how to use Scapy to sniff Ethernet frames and ex
 
 1. Copy the following Python code snippet into your Python script:
 
-    ```python
-    # importing Scapy
-    from scapy.all import sniff, Ether
+   ```python
+   # importing Scapy
+   from scapy.all import sniff, Ether
 
-    # defining the callback function to handle incoming packets
-    def packet_caller(packet):
-        if packet.haslayer(Ether):
-            # Extracting the Header Information
-            src_address = packet[Ether].src
-            dst_address = packet[Ether].dst
-            print(f"Source MAC Address: {src_address}, Destination MAC Address: {dst_address}")
+   # defining the callback function to handle incoming packets
+   def packet_caller(packet):
+       if packet.haslayer(Ether):
+           # Extracting the Header Information
+           src_address = packet[Ether].src
+           dst_address = packet[Ether].dst
+           print(f"Source MAC Address: {src_address}, Destination MAC Address: {dst_address}")
 
-    # sniffing for Ethernet Frames
-    print("Sniffing for Ethernet Frames...")
-    sniff(prn=packet_caller, iface="eth0", count=10)
-    ```
+   # sniffing for Ethernet Frames
+   print("Sniffing for Ethernet Frames...")
+   sniff(prn=packet_caller, iface="eth0", count=10)
+   ```
 
 ## 🤝 Contributing
 

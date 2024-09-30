@@ -6,24 +6,27 @@ draft: false
 summary: 'Learn about networking layers using Scapy, including crafting, sending, and sniffing Ethernet frames.'
 authors: ['default', 'Nischal Karki']
 ---
+
 # Networking With Scapy 👋
 
-
 ## Project Description
+
 Welcome to Networking With Scapy, a Python project focused on studying and implementing various networking layers using Scapy. This project aims to provide a hands-on learning experience in networking protocols and packet manipulation techniques.
 
 ### Motive
+
 The primary goal of this project is to deepen understanding and practical skills in networking by exploring different layers of the OSI model and implementing them using Scapy. By leveraging Scapy's capabilities, we can craft, send, receive, and analyze packets at different network layers, enabling us to grasp fundamental concepts more effectively.
 
 #### Instructions
+
 1. Ensure you have Scapy installed. If not, you can install it via pip:
 
-    ```
-    pip install scapy
-    ```
-
+   ```
+   pip install scapy
+   ```
 
 ## Transmission Control Protocol (TCP)
+
 TCP, an essential component of the Internet Protocol Suite, provides reliable, ordered, and error-checked delivery of data between applications running on hosts communicating via an IP network. It operates at the transport layer of the OSI model, facilitating communication between devices over a network.
 
 # Key Features:
@@ -51,9 +54,8 @@ TCP functionality is typically implemented in software libraries, networking sta
 Various programming languages offer TCP socket APIs for establishing TCP connections, sending and receiving data, and managing network communication.
 TCP's robustness, reliability, and versatility make it one of the most widely used protocols for transmitting data over networks, playing a vital role in modern internet communication.
 
-
-
 # Sending TCP packets using Scapy over IPv4
+
 ```
 from scapy.all import *
 ip = IP(src="192.168.1.2", dst="192.168.1.1")
@@ -62,14 +64,14 @@ packet = ip/tcp
 
 send(packet)
 ```
-## Wireshark Summery
-36	27.147600464	192.168.1.2	192.168.1.1	TCP	54	6555 → 80 [SYN] Seq=0 Win=8192 Len=0
 
+## Wireshark Summery
+
+36 27.147600464 192.168.1.2 192.168.1.1 TCP 54 6555 → 80 [SYN] Seq=0 Win=8192 Len=0
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
-
 
 ## Show your support
 

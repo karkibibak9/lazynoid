@@ -22,18 +22,10 @@ const SpeedTest: React.FC = () => {
 
     const takeSample = (sampleCount: number) => {
       if (sampleCount >= samples) {
-        setDownloadSpeed(
-          (downloadSpeeds.reduce((a, b) => a + b, 0) / samples).toFixed(2)
-        )
-        setUploadSpeed(
-          (uploadSpeeds.reduce((a, b) => a + b, 0) / samples).toFixed(2)
-        )
-        setPing(
-          (pings.reduce((a, b) => a + b, 0) / samples).toFixed(2)
-        )
-        setLatency(
-          (latencies.reduce((a, b) => a + b, 0) / samples).toFixed(2)
-        )
+        setDownloadSpeed((downloadSpeeds.reduce((a, b) => a + b, 0) / samples).toFixed(2))
+        setUploadSpeed((uploadSpeeds.reduce((a, b) => a + b, 0) / samples).toFixed(2))
+        setPing((pings.reduce((a, b) => a + b, 0) / samples).toFixed(2))
+        setLatency((latencies.reduce((a, b) => a + b, 0) / samples).toFixed(2))
         setLoading(false)
         return
       }
@@ -49,18 +41,10 @@ const SpeedTest: React.FC = () => {
       latencies.push(mockLatency)
 
       // Update UI with current averages
-      setDownloadSpeed(
-        (downloadSpeeds.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2)
-      )
-      setUploadSpeed(
-        (uploadSpeeds.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2)
-      )
-      setPing(
-        (pings.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2)
-      )
-      setLatency(
-        (latencies.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2)
-      )
+      setDownloadSpeed((downloadSpeeds.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2))
+      setUploadSpeed((uploadSpeeds.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2))
+      setPing((pings.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2))
+      setLatency((latencies.reduce((a, b) => a + b, 0) / (sampleCount + 1)).toFixed(2))
 
       setTimeout(() => takeSample(sampleCount + 1), sampleInterval)
     }
@@ -105,7 +89,6 @@ const SpeedTest: React.FC = () => {
 }
 
 export default SpeedTest
-
 
 // import React, { useState } from 'react'
 // import { useTheme } from 'next-themes'

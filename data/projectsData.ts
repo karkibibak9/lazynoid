@@ -8,18 +8,17 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: 'Network Speed Test Tool',
-    description: `Easily measure your internet speed with this reliable and accurate tool..`,
-    imgSrc: '/static/images/google.png',
+    description: `Easily measure your internet speed with this reliable and accurate tool.`,
+    imgSrc: '/static/images/speedt.jpg',
     href: '/scan',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'Leaked Password Analyzer',
+    description: `Analyze and detect leaked Password efficiently. This tool helps you to identify compromised accounts password and Show how many time that password is found in leaked Data`,
+    imgSrc: '/static/images/passleak.jpg',
+    href: '/LeakedEmail',
   },
 ]
+
 
 export default projectsData

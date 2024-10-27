@@ -20,5 +20,4 @@ const projectsData: Project[] = [
   },
 ]
 
-
 export default projectsData
